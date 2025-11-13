@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Black Panther",
+    "genre": "Action",
+    "mood_tags": ["action", "epic", "inspiring", "superhero", "adventure"],
+    "description": "A powerful superhero film that celebrates African culture and features an incredible hero's journey.",
+    "platform": "Disney+"
+  },
+  {
+    "id": 2,
+    "title": "The Lovebirds",
+    "genre": "Comedy",
+    "mood_tags": ["funny", "romantic", "chill", "feel-good", "rom-com"],
+    "description": "A hilarious rom-com about a couple who accidentally witness a murder and must clear their names.",
+    "platform": "Netflix"
+  },
+  {
+    "id": 3,
+    "title": "Get Out",
+    "genre": "Horror",
+    "mood_tags": ["horror", "thriller", "suspenseful", "thought-provoking", "intense"],
+    "description": "A critically acclaimed horror film that combines social commentary with genuine scares.",
+    "platform": "Prime Video"
+  },
+  {
+    "id": 4,
+    "title": "Soul",
+    "genre": "Animation",
+    "mood_tags": ["cozy", "inspiring", "feel-good", "animated", "chill", "thought-provoking"],
+    "description": "A beautiful animated film about a music teacher who discovers the meaning of life.",
+    "platform": "Disney+"
+  },
+  {
+    "id": 5,
+    "title": "Queen & Slim",
+    "genre": "Drama",
+    "mood_tags": ["drama", "powerful", "thought-provoking", "emotional", "intense", "black-led"],
+    "description": "A powerful road trip drama about two people who become fugitives after a tragic encounter.",
+    "platform": "Hulu"
+  },
+  {
+    "id": 6,
+    "title": "Spy",
+    "genre": "Action",
+    "mood_tags": ["funny", "action", "adventure", "comedy", "chill"],
+    "description": "A hilarious action-comedy about an unlikely CIA analyst who becomes a field agent.",
+    "platform": "Netflix"
+  },
+  {
+    "id": 7,
+    "title": "Encanto",
+    "genre": "Animation",
+    "mood_tags": ["cozy", "family", "musical", "feel-good", "animated", "chill", "funny"],
+    "description": "A magical animated musical about a Colombian family with extraordinary powers.",
+    "platform": "Disney+"
+  },
+  {
+    "id": 8,
+    "title": "Spiderman: Into the Spider-Verse",
+    "genre": "Action",
+    "mood_tags": ["superhero", "animated", "adventure", "inspiring", "funny", "action"],
+    "description": "An innovative animated superhero film with stunning visuals and a heartfelt story.",
+    "platform": "Netflix"
+  }
+]
+
