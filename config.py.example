@@ -1,0 +1,17 @@
+# TMDB API Configuration
+# Get your free API key from: https://www.themoviedb.org/settings/api
+#
+# How to set up your API key:
+# 1. Copy this file to config.py: cp config.py.example config.py
+#    (Or run: python setup_api_key.py - it will create config.py for you automatically)
+# 2. Replace 'your_api_key_here' with your actual TMDB API key
+# 3. Save the file
+#
+# Important: The config.py file is in .gitignore, so your API key won't be committed to git.
+# This keeps your API key safe and private.
+#
+# Note: This is an alternative to using .env file
+# You can use either method - the code will try .env first, then config.py
+
+TMDB_API_KEY = "your_api_key_here"
+
