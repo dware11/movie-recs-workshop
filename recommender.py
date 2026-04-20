@@ -7,6 +7,7 @@ This script can run in two modes:
 """
 
 import json
+import importlib.util
 import os
 import sys
 from pathlib import Path
@@ -19,6 +20,7 @@ import requests
 # a movie's mood tags, that movie gets a higher score.
 
 PROJECT_ROOT = Path(__file__).resolve().parent
+PARENT_ROOT = PROJECT_ROOT.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
@@ -112,15 +114,33 @@ def load_tmdb_api_key():
 
     api_key = os.getenv("TMDB_API_KEY", "").strip()
 
-    # Keep compatibility with host setup that uses config.py.
-    try:
-        from config import TMDB_API_KEY as CONFIG_API_KEY
+    # Keep compatibility with host setups that store config.py in either:
+    # - this project folder
+    # - the parent workshop folder
+    config_candidates = [
+        PROJECT_ROOT / "config.py",
+        PARENT_ROOT / "config.py",
+    ]
+    for config_path in config_candidates:
+        if not config_path.exists():
+            continue
 
-        if CONFIG_API_KEY and CONFIG_API_KEY.strip():
-            api_key = CONFIG_API_KEY.strip()
-            debug_print("Loaded API key from config.py")
-    except Exception as error:
-        debug_print(f"Could not load API key from config.py: {error}")
+        try:
+            module_name = f"workshop_config_{config_path.parent.name}"
+            spec = importlib.util.spec_from_file_location(module_name, config_path)
+            if spec is None or spec.loader is None:
+                continue
+
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            config_key = getattr(module, "TMDB_API_KEY", "").strip()
+
+            if config_key:
+                api_key = config_key
+                debug_print(f"Loaded API key from {config_path}")
+                break
+        except Exception as error:
+            debug_print(f"Could not load API key from {config_path}: {error}")
 
     return api_key
 

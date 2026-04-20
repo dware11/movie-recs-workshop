@@ -88,6 +88,53 @@ If working, you should see:
 
 If it fails, the app should safely fall back to local data.
 
+## Advanced Version: Try a More ML-Style Recommender
+
+This is a separate follow-up script for students after the main workshop:
+- File: `advanced_recommender.py`
+- Goal: learn collaborative filtering ideas with a real dataset
+
+### What students learn in this version
+- How a recommender changes when we use real user ratings
+- What a user-item matrix is
+- How movie similarity can be computed with cosine similarity
+- Why this feels more like ML than simple rule-based logic
+
+### Dataset to download
+Download **MovieLens Latest Small** from:
+- [MovieLens Datasets](https://grouplens.org/datasets/movielens/latest/)
+
+You need the **`ml-latest-small.zip`** file.
+
+### Where to place the dataset
+After unzipping, place the folder so this path exists:
+- `data/ml-latest-small/`
+
+At minimum, these files should be inside it:
+- `data/ml-latest-small/movies.csv`
+- `data/ml-latest-small/ratings.csv`
+
+Optional:
+- `data/ml-latest-small/tags.csv`
+
+### Install command (advanced only)
+
+```bash
+pip install -r requirements-advanced.txt
+```
+
+### Run the advanced script
+
+```bash
+python advanced_recommender.py
+```
+
+The script will:
+1. Load MovieLens data
+2. Build a movie-to-movie similarity engine
+3. Ask for a movie title you like
+4. Return similar movies as recommendations
+
 ## Friendly Error Behavior (for students)
 
 The app now handles common beginner issues with clear messages:
@@ -116,6 +163,18 @@ Run basic mode:
 
 ```bash
 python recommender.py
+```
+
+Install advanced dependencies (only if needed):
+
+```bash
+pip install -r requirements-advanced.txt
+```
+
+Run advanced ML-style recommender:
+
+```bash
+python advanced_recommender.py
 ```
 
 Run API setup helper:

@@ -1,0 +1,5 @@
+# Advanced recommender dependencies
+-r requirements.txt
+pandas
+numpy
+scikit-learn
