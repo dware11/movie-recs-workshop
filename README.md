@@ -1,40 +1,135 @@
-# 🎬 AI Movie Night Recommender — Python + API Project
+# AI Movie Recommender Workshop
 
-Build your own movie recommendation system in Python!  
-This beginner-friendly project helps you create a simple “AI” movie recommender with **optional TMDB (The Movie Database) API integration**. You’ll practice Python fundamentals while building something fun and useful.
+This workshop project teaches beginner Python using a simple movie recommender.
 
-> **🚀 New to this project?**  
-> Start with [START_HERE.md](START_HERE.md) for a gentle, step-by-step introduction.
+The app has two modes:
+- Basic version (recommended): local movie data, no API setup stress
+- Live API version (optional): TMDB data for a more advanced extension
 
----
+## Section A: Basic Version (Recommended for Beginners)
 
-## 📚 What You’ll Learn
+This is the safest path for class. Students can run the project without API setup.
 
-- Python basics: variables, lists, dictionaries, sets, loops, functions  
-- How JSON works and how to read it from a file  
-- How APIs work and how to call them with `requests.get()`  
-- How to rank and sort data to make recommendations  
-- How to handle errors and fall back to local data when an API fails  
-- “Scale-up” ideas for using real user data and more advanced logic  
+### 1) Open the project in Cursor
+1. Open Cursor
+2. Select "Open Folder"
+3. Choose this project folder: `movie-recs-workshop`
 
----
-
-## ✨ Project Features
-
-- Uses your “movie night vibe” (e.g., `chill, funny, horror`) to suggest movies  
-- **Optional** live data from the TMDB API  
-- Automatic fallback to local `data/movies.json` if there’s no API key or the API fails  
-- Maps mood tags to genres and aliases (e.g., `funny` → comedy)  
-- Shows ratings, release dates, and descriptions (when using TMDB)  
-- Works **with or without** an API key
-
----
-
-## ⚡ Quick Start
-
-### 1. Clone the Repository
+### 2) Install requirements
+Use one command:
 
 ```bash
-git clone https://github.com/yourusername/movie-recs-workshop.git
-cd movie-recs-workshop
+pip install -r requirements.txt
+```
 
+### 3) Run the recommender
+
+```bash
+python recommender.py
+```
+
+If `python` does not work on Windows, try:
+
+```bash
+py recommender.py
+```
+
+### 4) Enter a vibe
+Try mood words like:
+- `chill, funny`
+- `action, adventure`
+- `cozy, feel-good`
+
+That is it. This basic version is enough for the core workshop.
+
+## Section B: Live API Version (Advanced / Optional)
+
+This optional version connects to TMDB (The Movie Database), a free movie data service.
+
+Use this only after students are comfortable with the basic version.
+If API setup feels confusing, skip this section and keep using the basic version.
+
+### What the API key is for
+An API key is like a password that lets your script ask TMDB for live movie data.
+
+### Step-by-step TMDB key setup
+1. Go to [TMDB API settings](https://www.themoviedb.org/settings/api)
+2. Create an account or sign in
+3. Request an API key (Developer option)
+4. Copy your key
+5. In this project, run:
+
+```bash
+python setup_api_key.py
+```
+
+6. Paste your key when asked
+7. Choose where to save it:
+   - `.env` (recommended)
+   - `config.py`
+   - or both
+
+The current host setup using `config.py` is still supported and preserved.
+
+### Manual setup option (if you prefer)
+- Copy `config.py.example` to `config.py`
+- Replace `your_api_key_here` with your real TMDB API key
+
+### Test that API setup worked
+Run:
+
+```bash
+python recommender.py
+```
+
+If working, you should see:
+- `Using live movie data (TMDB).`
+- `Fetching movie recommendations...`
+
+If it fails, the app should safely fall back to local data.
+
+## Friendly Error Behavior (for students)
+
+The app now handles common beginner issues with clear messages:
+- Empty input vibe
+- Missing API key
+- API request failure
+- Missing local movie file
+- No matching recommendations
+
+## Workshop Notes (Host)
+
+- Teach the basic local version first (`python recommender.py` with no API key required)
+- Introduce API mode only after students understand input, tags, and scoring
+- If TMDB fails live, keep teaching: the app auto-falls back to local movie data
+- Before class, test both modes once on your machine
+
+## Quick Test Commands
+
+Install:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run basic mode:
+
+```bash
+python recommender.py
+```
+
+Run API setup helper:
+
+```bash
+python setup_api_key.py
+```
+
+Run with optional debug details (host only):
+
+```bash
+# Windows PowerShell
+$env:MOVIE_RECS_DEBUG="1"; python recommender.py
+
+# Mac/Linux
+MOVIE_RECS_DEBUG=1 python recommender.py
+```

@@ -178,7 +178,7 @@ def main():
         print("=" * 60)
         print()
         print("You can now run the Movie Night Recommender:")
-        print("  python starter/recommender.py")
+        print("  python recommender.py")
         print()
         print("The program will use your API key to fetch live movie data!")
     else:
