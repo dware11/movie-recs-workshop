@@ -4,15 +4,29 @@ __pycache__/
 *$py.class
 *.so
 .Python
+.env/
 env/
 venv/
 ENV/
-.venv
+.venv/
 
-# API Keys and Config
+# API keys and local configuration
 .env
+.env.*
+!.env.example
 config.py
 *.key
+
+# Downloaded workshop datasets
+# Keep large/licensed MovieLens files local; see data/README.md.
+data/ml-latest-small/
+
+# Test / tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
 
 # IDE
 .vscode/
@@ -32,4 +46,3 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
-
